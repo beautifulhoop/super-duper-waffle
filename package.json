@@ -12,6 +12,7 @@
     "typescript": "^5.2.2"
   },
   "scripts": {
+    "start": "node index.js",
     "tsc": "tsc",
     "watch": "tsc -w"
   }
