@@ -12,7 +12,7 @@
     "typescript": "^5.2.2"
   },
   "scripts": {
-    "start": "node ./dist/index.js",
+    "start": "tsc && node ./dist/index.js",
     "tsc": "tsc",
     "watch": "tsc -w"
   }
