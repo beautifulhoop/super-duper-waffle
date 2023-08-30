@@ -1,5 +1,5 @@
-import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
-import { Profile } from 'passport-google-oauth20';
+import { Strategy as GoogleStrategy, Profile } from 'passport-google-oauth20';
+// import { Profile } from 'passport-google-oauth20';
 declare module 'passport-google-oauth20';
 
 
@@ -28,7 +28,7 @@ passport.use(new GoogleStrategy(
         clientSecret: process.env.googleClientSecret,
         callbackURL: callbackURL
     },
-    async (accessToken: string, refreshToken: string, profile: Profile, done: Function) => {
+    async (accessToken: string, refreshToken: string, profile: any, done: Function) => {
         const existingUser = await User.findOne({ googleID: profile.id })
 
         if (existingUser) {
