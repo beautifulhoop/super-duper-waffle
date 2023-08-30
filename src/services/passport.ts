@@ -5,6 +5,10 @@ const passport = require('passport')
 
 console.log(process.env.googleClientID)
 
+const callbackURL = process.env.NODE_ENV === 'production'
+    ? 'https://super-duper-waffle.onrender.com/auth/google/callback'
+    : 'http://localhost:5000/auth/google/callback';
+
 // const googleClientSecret = process.env.googleClientSecret;
 // const googleClientID = process.env.googleClientID;
 
