@@ -1,5 +1,8 @@
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
 import { Profile } from 'passport-google-oauth20';
+
+import * as passportGoogleOauth20 from 'passport-google-oauth20';
+
 require('dotenv').config();
 import passport from 'passport';
 import mongoose from 'mongoose';
