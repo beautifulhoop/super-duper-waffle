@@ -1,5 +1,7 @@
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
 import { Profile } from 'passport-google-oauth20';
+declare module 'passport-google-oauth20';
+
 
 import * as passportGoogleOauth20 from 'passport-google-oauth20';
 
