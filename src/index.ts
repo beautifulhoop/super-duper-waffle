@@ -2,8 +2,10 @@ import express, { Express } from 'express';
 import dotenv from 'dotenv';
 dotenv.config();
 
-
+const mongoose = require('mongoose');
 const passportConfig = require('./services/passport');
+
+mongoose.connect(process.env.mongoURI);
 
 const app: Express = express();
 require('./routes/authRoutes')(app);
