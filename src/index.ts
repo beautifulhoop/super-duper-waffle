@@ -3,6 +3,8 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const mongoose = require('mongoose');
+require('./models/User');
+
 const passportConfig = require('./services/passport');
 
 mongoose.connect(process.env.mongoURI);

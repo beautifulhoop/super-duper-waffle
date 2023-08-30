@@ -1,9 +1,10 @@
 const GoogleStrategy = require('passport-google-oauth20').Strategy
 import { Profile } from 'passport-google-oauth20';
 require('dotenv').config();
-const passport = require('passport')
+const passport = require('passport');
+const moongose = require('mongoose');
+const User = moongose.model('users');
 
-console.log(process.env.googleClientID)
 
 const callbackURL = process.env.NODE_ENV === 'prod'
     ? 'https://super-duper-waffle.onrender.com/auth/google/callback'
@@ -23,7 +24,12 @@ passport.use(new GoogleStrategy(
         callbackURL: callbackURL
     },
     (accessToken: string, refreshToken: string, profile: Profile, done: Function) => {
-        console.log(accessToken);
+        new User({ googleId: profile.id }).save();
+        console.log(`User with ${profile.id} saved`)
+
+
+
+
 
     }
 
