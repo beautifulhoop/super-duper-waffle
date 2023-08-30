@@ -11,7 +11,7 @@ import mongoose from 'mongoose';
 const User = mongoose.model('users');
 
 
-const callbackURL = process.env.NODE_ENV === 'prod'
+const callbackURL = process.env.NODE_ENV === 'production'
     ? 'https://super-duper-waffle.onrender.com/auth/google/callback'
     : 'http://localhost:5000/auth/google/callback';
 
