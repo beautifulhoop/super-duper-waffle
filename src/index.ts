@@ -1,5 +1,6 @@
 import express, { Express } from 'express';
 import dotenv from 'dotenv';
+import passport from 'passport';
 dotenv.config();
 import cookieSession from 'cookie-session';
 import { error } from 'console';
@@ -19,6 +20,8 @@ if (process.env.cookieKey == null) {
 }
 
 app.use(cookieSession({ maxAge: 30 * 24 * 60 * 60 * 1000, keys: [process.env.cookieKey] }))
+app.use(passport.initialize());
+app.use(passport.session())
 require('./routes/authRoutes')(app);
 
 const port = 5000
