@@ -2,6 +2,7 @@
 import ReactDOM from "react-dom/client";
 
 import { Provider } from 'react-redux';
+import reducers from './reducers';
 
 import { createStore, applyMiddleware } from 'redux';
 // 2) Import App component as usual
@@ -12,7 +13,7 @@ import App from './components/App';
 const el = document.getElementById("root");
 
 
-const store = createStore(() => [], [], applyMiddleware());
+const store = createStore(reducers, {}, applyMiddleware());
 // 4) Tell React to take control of that element
 if (el) {
     const root = ReactDOM.createRoot(el);
